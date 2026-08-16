@@ -1,0 +1,337 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NoBuulShht Wrestlin — Music Archive</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    .header {
+      border-bottom: 3px solid #ffffff;
+      padding: 25px 20px;
+      text-align: center;
+      background: #000000;
+    }
+
+    .brand {
+      font-size: clamp(2rem, 6vw, 4.5rem);
+      font-weight: 900;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+    }
+
+    .sub-brand {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      letter-spacing: 4px;
+      color: #cccccc;
+      text-transform: uppercase;
+    }
+
+    .container {
+      width: min(1000px, 92%);
+      margin: 0 auto;
+      padding: 35px 0 60px;
+    }
+
+    .archive-title {
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .archive-description {
+      color: #aaaaaa;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .player {
+      background: #151515;
+      border: 1px solid #333333;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+    }
+
+    .now-playing {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .cover {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #333333, #050505);
+      border: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px;
+      font-weight: 900;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+    }
+
+    .track-number {
+      color: #888888;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .track-title {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .credit {
+      color: #bbbbbb;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .credit strong {
+      color: #ffffff;
+    }
+
+    .disclosure {
+      margin-top: 18px;
+      padding: 14px;
+      border-left: 3px solid #ffffff;
+      background: #0c0c0c;
+      color: #aaaaaa;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 25px;
+    }
+
+    .controls-note {
+      text-align: center;
+      margin-top: 10px;
+      color: #777777;
+      font-size: 0.75rem;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      border-bottom: 1px solid #333333;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .track {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 16px;
+      background: #111111;
+      border: 1px solid #222222;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .track:hover {
+      background: #1d1d1d;
+    }
+
+    .track-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .track-id {
+      color: #777777;
+      font-size: 0.8rem;
+      width: 35px;
+    }
+
+    .track-name {
+      font-weight: 700;
+    }
+
+    .track-status {
+      color: #777777;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .about {
+      color: #aaaaaa;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      text-align: center;
+      border-top: 1px solid #222222;
+      padding: 25px 15px;
+      color: #666666;
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 650px) {
+      .now-playing {
+        grid-template-columns: 1fr;
+      }
+
+      .cover {
+        width: 100%;
+        height: 220px;
+      }
+
+      .player {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="brand">NoBuulShht Wrestlin</div>
+    <div class="sub-brand">NBS Music Archive</div>
+  </header>
+
+  <main class="container">
+
+    <h1 class="archive-title">The Music Archive</h1>
+
+    <p class="archive-description">
+      Music from the NoBuulShht Wrestlin universe.
+      Original concepts, lyrics and creative direction by Capitaldcpresents.
+    </p>
+
+    <section class="player">
+
+      <div class="now-playing">
+
+        <div class="cover">
+          NBS<br>
+          TO THE MAX
+        </div>
+
+        <div>
+          <div class="track-number">TRACK 001</div>
+
+          <h2 class="track-title">
+            To the Max (TV Version)
+          </h2>
+
+          <div class="credit">
+            <strong>Lyrics:</strong> Capitaldcpresents<br>
+            <strong>Creative Direction:</strong> Capitaldcpresents<br>
+            <strong>Music Generation:</strong> Suno AI
+          </div>
+
+          <div class="disclosure">
+            <strong>AI MUSIC DISCLOSURE</strong><br>
+            The lyrics and creative direction for this work were provided
+            by Capitaldcpresents. The musical recording was generated using
+            Suno AI.
+          </div>
+        </div>
+
+      </div>
+
+      <!--
+        Replace "music/to-the-max-tv-version.mp3"
+        with the actual audio file path when we add the song.
+      -->
+      <audio controls preload="metadata">
+        <source
+          src="music/to-the-max-tv-version.mp3"
+          type="audio/mpeg"
+        >
+        Your browser does not support the audio player.
+      </audio>
+
+      <div class="controls-note">
+        NBS MUSIC PLAYER — TRACK 001
+      </div>
+
+    </section>
+
+    <section class="section">
+
+      <h2 class="section-title">Track List</h2>
+
+      <div class="track">
+        <div class="track-info">
+          <div class="track-id">001</div>
+          <div class="track-name">To the Max (TV Version)</div>
+        </div>
+
+        <div class="track-status">
+          NBS Original
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section">
+
+      <h2 class="section-title">About This Archive</h2>
+
+      <p class="about">
+        The NoBuulShht Wrestlin Music Archive is a collection of music
+        created for the NBS universe.
+        <br><br>
+        Capitaldcpresents develops the concepts, writes original lyrics,
+        develops creative direction and supplies musical prompts.
+        Suno AI is used as a generative music tool to produce the
+        musical recordings.
+        <br><br>
+        This archive is designed to clearly identify the human creative
+        contribution and the use of artificial intelligence in the
+        production process.
+      </p>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    NoBuulShht Wrestlin™<br>
+    A Capitaldcpresents project
+  </footer>
+
+</body>
+</html>
+```
